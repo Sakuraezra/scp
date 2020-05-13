@@ -9,6 +9,8 @@
     <modules>
         <module>eureka-8761</module>
         <module>eureka-8762</module>
+        <module>provider-5001</module>
+        <module>api</module>
     </modules>
     <packaging>pom</packaging>
 
