@@ -1,4 +1,4 @@
-package cn.ezra.entities.service;
+package cn.ezra.service;
 
 
 import cn.ezra.entities.Dept;

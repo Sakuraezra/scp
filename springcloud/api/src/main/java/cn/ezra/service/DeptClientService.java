@@ -1,4 +1,4 @@
-package cn.ezra.entities.service;
+package cn.ezra.service;
 import cn.ezra.entities.Dept;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import java.util.List;
 
 // value --->指定调用哪个服务
 // fallbackFactory--->熔断器的降级提示
-@FeignClient(value = "MICROSERVICECLOUD-DEPT", fallbackFactory = DeptClientServiceFallbackFactory.class)
+@FeignClient(value = "msc-dept", fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
 
 
