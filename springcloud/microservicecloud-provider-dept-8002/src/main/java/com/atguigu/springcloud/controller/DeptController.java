@@ -1,8 +1,8 @@
-package cn.ezra.controller;
+package com.atguigu.springcloud.controller;
 
 
 import cn.ezra.entities.Dept;
-import cn.ezra.service.DeptService;
+import com.atguigu.springcloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
@@ -19,10 +19,10 @@ import java.util.List;
 public class DeptController {
     @Autowired
     private DeptService service;
-
     @Qualifier("discoveryClient")
     @Autowired
     private DiscoveryClient client;
+
 
     @RequestMapping(value = "/dept/add", method = RequestMethod.POST)
     public boolean add(@RequestBody Dept dept) {
@@ -31,12 +31,8 @@ public class DeptController {
 
     @RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
     public Dept get(@PathVariable("id") Long id) {
-
-        System.out.println("i am 5001 ");
-
         return service.get(id);
     }
-
 
     @RequestMapping(value = "/dept/list", method = RequestMethod.GET)
     public List<Dept> list() {
@@ -44,14 +40,8 @@ public class DeptController {
     }
 
 
-//	@Autowired
+    //	@Autowired
 //	private DiscoveryClient client;
-
-    /**
-     * 服务发现：可以得到当前在eureka中已注册的服务
-     *
-     * @return
-     */
     @RequestMapping(value = "/dept/discovery", method = RequestMethod.GET)
     public Object discovery() {
         List<String> list = client.getServices();
